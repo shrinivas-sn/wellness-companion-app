@@ -1,5 +1,9 @@
-import { Text } from "react-native";
-
+import Button from "../components/button";
+import ScreenWrapper from "../components/ScreenWrapper";
 export default function HomeScreen() {
-  return <Text> Home Screen </Text>;
+  return (
+    <ScreenWrapper>
+      <Button title="Home Screen" />
+    </ScreenWrapper>
+  );
 }

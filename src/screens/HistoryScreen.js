@@ -1,9 +1,9 @@
-import { Text, View } from "react-native";
-
+import Button from "../components/button";
+import ScreenWrapper from "../components/ScreenWrapper";
 export default function HistoryScreen() {
   return (
-    <View>
-      <Text> History Screen </Text>
-    </View>
+    <ScreenWrapper>
+      <Button title="History Screen" />
+    </ScreenWrapper>
   );
 }

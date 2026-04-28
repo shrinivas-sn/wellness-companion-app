@@ -1,9 +1,9 @@
-import { Text, View } from "react-native";
-
+import Button from "../components/button";
+import ScreenWrapper from "../components/ScreenWrapper";
 export default function LogScreen() {
   return (
-    <View>
-      <Text> Log</Text>
-    </View>
+    <ScreenWrapper>
+      <Button title="Log Screen" />
+    </ScreenWrapper>
   );
 }
