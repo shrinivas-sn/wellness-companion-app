@@ -1,4 +1,4 @@
-import Button from "../components/button";
+import Button from "../components/CustomButton";
 import MotivationalQuote from "../components/MotivationalQuote";
 import ScreenWrapper from "../components/ScreenWrapper";
 export default function HomeScreen() {

@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function CustomButton({ title }) {
+export default function CustomButton({ title, onPress }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
         <Text style={styles.buttonText}>{title}</Text>
       </TouchableOpacity>
     </View>
@@ -13,10 +13,9 @@ export default function CustomButton({ title }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eff",
   },
   buttonContainer: {
-    fontSize: 20,
+    fontSize: 10,
     fontWeight: "bold",
     color: "#333",
     backgroundColor: "#d68686ff",
@@ -30,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonText: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
     color: "#333",
   },
