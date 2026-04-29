@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Alert, Image, ScrollView, StyleSheet } from "react-native";
-// 1. Image Picker Import
 import * as ImagePicker from "expo-image-picker";
-
+import { useCallback, useEffect, useState } from "react";
+import { Alert, Image, ScrollView, StyleSheet } from "react-native";
+import { useAsyncStorage } from "../hooks/useAsyncStorage";
 import CustomButton from "../components/CustomButton";
 import InputText from "../components/InputText";
 import MoodPicker from "../components/MoodPickerEmoji";
@@ -15,8 +14,13 @@ export default function LogScreen() {
   const [mood, setMood] = useState("");
   const [photo, setPhoto] = useState(null);
 
+  const { data, loadData, saveData } = useAsyncStorage("wellness_logs");
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   const pickImage = async () => {
-    // 1. EXPLICITLY ASK FOR PERMISSION FIRST
     const permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
 
@@ -46,7 +50,18 @@ export default function LogScreen() {
       return;
     }
 
-    console.log("Saved:", { steps, water, sleep, mood, photo });
+    const newEntry = {
+      steps,
+      water,
+      sleep,
+      mood,
+      photo,
+      date: new Date().toISOString(),
+    };
+
+    const updatedLogs = data ? [...data, newEntry] : [newEntry];
+    saveData(updatedLogs);
+
     Alert.alert("Success!", "Data saved for today.");
 
     setSteps("");

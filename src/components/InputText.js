@@ -26,9 +26,10 @@ const style = StyleSheet.create({
     padding: 10,
     margin: 10,
     color: "black",
-    fontSize: 10,
+    fontSize: 15,
     minWidth: 200,
     fontFamily: "monospace",
     textAlign: "center",
+    fontWeight: "bold",
   },
 });

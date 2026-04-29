@@ -10,53 +10,58 @@ import LogScreen from "./src/screens/LogScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
 const Tab = createBottomTabNavigator();
 
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          tabBarActiveTintColor: "red",
-          tabBarInactiveTintColor: "gray",
-        }}
-      >
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            tabBarIcon: () => <Ionicons name="home" size={24} color="red" />,
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{
+            tabBarActiveTintColor: "red",
+            tabBarInactiveTintColor: "gray",
           }}
-        />
-        <Tab.Screen
-          name="Log"
-          component={LogScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Feather name="activity" size={size} color={color} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="History"
-          component={HistoryScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <AntDesign name="history" size={size} color={color} />
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="Settings"
-          component={SettingsScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <AntDesign name="setting" color={color} size={size} />
-            ),
-          }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+        >
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{
+              tabBarIcon: () => <Ionicons name="home" size={24} color="red" />,
+            }}
+          />
+          <Tab.Screen
+            name="Log"
+            component={LogScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <Feather name="activity" size={size} color={color} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="History"
+            component={HistoryScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <AntDesign name="history" size={size} color={color} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Settings"
+            component={SettingsScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <AntDesign name="setting" color={color} size={size} />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
