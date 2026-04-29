@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import {
   FlatList,
@@ -13,11 +13,19 @@ import { useAsyncStorage } from "../hooks/useAsyncStorage";
 export default function HistoryScreen() {
   const { data, loadData, saveData } = useAsyncStorage("wellness_logs");
 
+  const [refreshing, setRefreshing] = useState(false);
+
   useFocusEffect(
     useCallback(() => {
       loadData();
     }, [])
   );
+
+  const handleRefresh = async () => {
+    setRefreshing(true);
+    await loadData();
+    setRefreshing(false);
+  };
 
   const handleDelete = (indexToDelete) => {
     const newData = data.filter((_, index) => index !== indexToDelete);
@@ -59,6 +67,8 @@ export default function HistoryScreen() {
           data={data}
           keyExtractor={(item, index) => index.toString()}
           renderItem={renderLogItem}
+          refreshing={refreshing}
+          onRefresh={handleRefresh}
         />
       )}
     </View>
