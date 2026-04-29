@@ -36,6 +36,7 @@ Settings → Set your name and daily goals
 ## 🚀 Local Setup
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) v18+
 - [Git](https://git-scm.com/)
 - [Expo Go](https://expo.dev/go) app on your phone
@@ -65,6 +66,7 @@ Then scan the QR code with **Expo Go** (Android) or your **Camera app** (iOS).
 Daily reminder notifications using `expo-notifications` are **fully implemented in code** but cannot run inside Expo Go due to a platform restriction introduced in **Expo SDK 53**.
 
 To test notifications, use a development build:
+
 ```bash
 npx expo install expo-dev-client
 npx expo run:android
@@ -74,4 +76,4 @@ npx expo run:android
 
 ## 👤 Author
 
-**Your Name** — Avantro Labs Internship, Assignment 3
+**SHRINIVAS NEMAGOUDAR** — Avantro Labs Internship
