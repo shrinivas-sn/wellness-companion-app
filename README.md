@@ -1,50 +1,77 @@
-# Welcome to your Expo app 👋
+# 🌿 Wellness Companion App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile app built with **Expo** for daily wellness tracking — log your steps, water, sleep, and mood, and review your history over time.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Screen Flow
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+Home → Today's summary, streak counter, motivational quote
+Log  → Fill in wellness data + optional photo → Save
+History → View all past logs, swipe to delete, pull to refresh
+Settings → Set your name and daily goals
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## ✨ Features
 
-To learn more about developing your project with Expo, look at the following resources:
+- **Home Screen** — Consecutive day streak 🔥, today's summary card, motivational quote from API
+- **Log Screen** — Form with validation (steps, water, sleep, mood), optional photo picker
+- **History Screen** — FlatList of past entries, swipe-to-delete, pull-to-refresh
+- **Settings Screen** — Save your name and daily goals
+- **Persistence** — All data stored locally using `AsyncStorage` via a custom `useAsyncStorage` hook
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 🧠 State Management
 
-Join our community of developers creating universal apps.
+- `useState` for local form and UI state
+- Custom `useAsyncStorage` hook wraps AsyncStorage with `loadData` and `saveData`
+- All data is stored on-device — no backend required
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 🚀 Local Setup
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) v18+
+- [Git](https://git-scm.com/)
+- [Expo Go](https://expo.dev/go) app on your phone
+
+### Steps
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/YOUR_USERNAME/wellness-companion.git
+
+# 2. Go into the project folder
+cd wellness-companion
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the app
+npx expo start
+```
+
+Then scan the QR code with **Expo Go** (Android) or your **Camera app** (iOS).
+
+---
+
+## ⚠️ Known Limitation — Notifications
+
+Daily reminder notifications using `expo-notifications` are **fully implemented in code** but cannot run inside Expo Go due to a platform restriction introduced in **Expo SDK 53**.
+
+To test notifications, use a development build:
+```bash
+npx expo install expo-dev-client
+npx expo run:android
+```
+
+---
+
+## 👤 Author
+
+**Your Name** — Avantro Labs Internship, Assignment 3
