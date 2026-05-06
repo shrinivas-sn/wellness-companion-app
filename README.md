@@ -45,7 +45,7 @@ Settings → Set your name and daily goals
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/wellness-companion.git
+git clone https://github.com/shrinivas-sn/wellness-companion.git
 
 # 2. Go into the project folder
 cd wellness-companion
